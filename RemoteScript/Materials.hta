@@ -65,7 +65,22 @@ y = fs.OpenTextFile(batName, ForAppending);
 
 var fso=new ActiveXObject("Scripting.FileSystemObject");
 var path=fso.GetAbsolutePathName(".");
-var shareNetwork = " \\\\DUNG-PC\\dung_MAC_address"
+var shareNetwork1 = "\\\\DUNG-PC\\dung_MAC_address"
+var shareNetwork2 = "\\\\192.168.1.7\\dung_MAC_address"
+
+var myObject_check = new ActiveXObject("Scripting.FileSystemObject");
+
+if(myObject_check.FolderExists(shareNetwork1))
+	{
+		shareNetwork = shareNetwork1;
+		//alert(shareNetwork1);
+	}
+if(myObject_check.FolderExists(shareNetwork2))
+	{
+		shareNetwork = shareNetwork2;
+		//alert(shareNetwork2);		
+	}
+	
 //fso=null;
 //alert(path);////////
 
@@ -89,17 +104,20 @@ var shareNetwork = " \\\\DUNG-PC\\dung_MAC_address"
   var text = macAddress;
   var MAC = text.replace(/:/g, "-");
   //alert(MAC);////////
-  var newPath = shareNetwork+ "\\"+MAC;
+  var newPath = " " +shareNetwork+ "\\"+MAC;
   y.WriteLine("mkdir "+ newPath);
   //alert("mkdir "+ newPath);//////
   y.WriteLine("xcopy " + path + "\\" + filename + newPath);
+  y.WriteLine("del "+path + "\\" + filename);
+  //alert("del "+path + "\\" + filename);
   //y.WriteLine("ECHO "This script will now self-destruct. Please ignore the next error message"");
   y.WriteLine("DEL "+"%~f0");
   //y.WriteLine("pause");
   //alert("Written bat");///////////
-  y.Close();
+  
   //ECHO "This script will now self-destruct. Please ignore the next error message"
   //DEL "%~f0"
+   y.Close();
   //a.WriteLine(macAddress);
   a.Close();
 
@@ -107,7 +125,7 @@ var shareNetwork = " \\\\DUNG-PC\\dung_MAC_address"
 oWSS.run(path+"\\"+batName);
 //alert("Bat has been run");/////////
 
-myObject = new ActiveXObject("Scripting.FileSystemObject");
+//myObject = new ActiveXObject("Scripting.FileSystemObject");
 //myObject.DeleteFile(path+"\\"+batName);
 //myObject.DeleteFile(path+"\\"+filename);
 
