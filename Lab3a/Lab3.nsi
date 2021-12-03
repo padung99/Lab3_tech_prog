@@ -54,6 +54,7 @@ Section "Dummy Section" SecDummy
   SetOutPath "$INSTDIR"
   
   ;ADD YOUR OWN FILES HERE...
+  ;This need to be changed when moving to another computer
   File C:\Users\dungphan16499\Desktop\CreateSignature.exe
   File C:\Users\dungphan16499\Desktop\VerifiedSignature.exe
   File C:\Users\dungphan16499\Desktop\RunSecure.exe
