@@ -1,0 +1,5 @@
+dungphan16499
+ANHDUNGP
+Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+Windows 10 Enterprise
+30:9C:23:FE:11:CF
